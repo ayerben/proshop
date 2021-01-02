@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {LinkContainer} from 'react-router-bootstrap';
 import {
   Collapse,
   Navbar,
@@ -19,16 +20,18 @@ const Header = (props) => {
     <div>
       <Navbar color="light" light expand="md">
       <Container>
-        <NavbarBrand href="/">Proshop</NavbarBrand>
+      <LinkContainer to='/'>
+        <NavbarBrand >Proshop</NavbarBrand>
+      </LinkContainer>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/cart"><i className="fas fa-shopping-cart"></i>Cart</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/login"><i className="fas fa-user"></i>Sign In</NavLink>
-            </NavItem>
+            <LinkContainer to='/cart'>
+              <NavLink><i className="fas fa-shopping-cart"></i>Cart</NavLink>
+            </LinkContainer>
+            <LinkContainer to='/login'>
+              <NavLink><i className="fas fa-user"></i>Sign In</NavLink>
+            </LinkContainer>
           </Nav>
         </Collapse>
         </Container>
